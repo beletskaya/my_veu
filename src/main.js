@@ -3,12 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import newComponent from './components/new'
-
 
 Vue.config.productionTip = false
-
-Vue.component('newComponent', newComponent)
 
 /* eslint-disable no-new */
 new Vue({
@@ -18,6 +14,31 @@ new Vue({
   template: '<App/>'
 })
 
+/*new Vue({
+  el: '#new',
+  data: {
+    title: 'My test project',
+    text: true,
+    numbers: ['1', 22, 54, 87, 12],
+    textColor: '#000000',
+    details: [
+      {
+        id: 1,
+        color: 'red'
+      },
+      {
+        id: 2,
+        color: 'blue'
+      }
+    ],
+    methods: {
+      changeColor: function (color) {
+        alert('rwerwr')
+        this.textColor = color
+      }
+    }
+  }
+})
 
 
 new Vue({
@@ -30,4 +51,4 @@ new Vue({
       this.count += 1
     }
   }
-})
+})*/

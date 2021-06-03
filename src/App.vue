@@ -2,15 +2,22 @@
   <div>
     <div id="app">
       <img src="./assets/logo.png">
-      <router-view/>
     </div>
-    <newComponent/>
+    <Button >Click me</Button>
+    <Title post-title="hello!"/>
   </div>
 </template>
 
 <script>
+
+import Button from "./components/Button";
+import Title from "./components/Title"
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Button,
+    Title
+  },
 }
 
 </script>
