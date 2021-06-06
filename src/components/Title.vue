@@ -2,15 +2,25 @@
   <div>
     <p @click="clickMethod" v-for="(text, index) in texts"
         :key="index">{{text}}</p>
+    <ul>
+      <Item  v-for="item in toDoItem"
+            v-bind:item="item" />
+    </ul>
 
   </div>
 </template>
 
 <script>
+import Item from './Item'
   export default {
+  props: ['toDoItem'],
+    components : {
+      Item
+    },
     data() {
       return{
-        texts: ['text1', 'text2', 'text3']
+        texts: ['text1', 'text2', 'text3'],
+
       }
     },
     methods: {
@@ -18,14 +28,7 @@
         //debugger
         alert('This is text')
       }
-    },
-    props: {
-      posts: [
-        { id: 1, title: 'My journey with Vue' },
-        { id: 2, title: 'Blogging with Vue' },
-        { id: 3, title: 'Why Vue is so fun' }
-      ]
-    },
+    }
   }
 </script>
 
