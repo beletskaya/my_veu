@@ -4,7 +4,9 @@
       <img src="./assets/logo.png">
     </div>
     <Button >Click me</Button>
-    <Title post-title="hello!" v-bind:toDoItem="toDoItem"/>
+    <AddToDo @add-to-do="addToDo"/>
+    <Title post-title="hello!" v-bind:toDoItem="toDoItem"
+          @remove-to-do="removeToDo"/>
   </div>
 </template>
 
@@ -12,11 +14,13 @@
 
 import Button from "./components/Button";
 import Title from "./components/Title"
+import AddToDo from "./components/AddToDo";
 export default {
   name: 'App',
   components: {
     Button,
-    Title
+    Title,
+    AddToDo
   },
   data() {
     return {
@@ -25,6 +29,14 @@ export default {
         { id: 2, title: "Buy a bread", completed: false},
         { id: 3, title: "Buy a tomato", completed: false}
       ]
+    }
+  },
+  methods : {
+    removeToDo(id){
+      this.toDoItem = this.toDoItem.filter( item => item.id !== id)
+    },
+    addToDo(newToDo){
+      this.toDoItem.push(newToDo)
     }
   }
 }

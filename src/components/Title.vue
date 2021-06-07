@@ -4,7 +4,8 @@
         :key="index">{{text}}</p>
     <ul>
       <Item  v-for="item in toDoItem"
-            v-bind:item="item" />
+            v-bind:item="item"
+            v-on:remove-to-do="removeToDo"/>
     </ul>
 
   </div>
@@ -27,6 +28,10 @@ import Item from './Item'
       clickMethod(){
         //debugger
         alert('This is text')
+      },
+      removeToDo(id) {
+        this.$emit('remove-to-do', id)
+        console.log(id)
       }
     }
   }

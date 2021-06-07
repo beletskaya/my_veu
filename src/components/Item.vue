@@ -1,11 +1,11 @@
 <template>
   <li>
-    <span>
-      <input type="checkbox">
+    <span v-bind:class="{completed : item.completed}">
+      <input type="checkbox" v-on:change="item.completed = !item.completed">
       <strong>{{item.id}}</strong>
       {{item.title}}
     </span>
-    <button>&times;</button>
+    <button v-on:click="$emit('remove-to-do', item.id)">&times;</button>
   </li>
 </template>
 
@@ -20,3 +20,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .completed{
+    text-decoration: line-through;
+  }
+</style>
