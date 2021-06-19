@@ -28,3 +28,23 @@
     }
   }
 </script>
+
+<style scoped>
+  form{
+    margin-top: 20px;
+  }
+  input{
+    width: 320px;
+    padding: 5px;
+    border: 1px solid #bdbcbc;
+    border-radius: 2px;
+  }
+  button {
+    border: 0;
+    padding: 6px 29px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #35495e;
+    background-color: #41b883;
+  }
+</style>

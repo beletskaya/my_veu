@@ -3,8 +3,9 @@
     <p @click="clickMethod" v-for="(text, index) in texts"
         :key="index">{{text}}</p>
     <ul>
-      <Item  v-for="item in toDoItem"
+      <Item  v-for="(item, index) in toDoItem"
             v-bind:item="item"
+             v-bind:index="index"
             v-on:remove-to-do="removeToDo"/>
     </ul>
 
