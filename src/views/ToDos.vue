@@ -1,8 +1,14 @@
 <template>
   <div>
+    <hr/>
+    <div class="links">
+      <router-link to="/">Home</router-link>
+    </div>
     <AddToDo @add-to-do="addToDo"/>
-    <Title post-title="hello!" v-bind:toDoItem="toDoItem"
-           @remove-to-do="removeToDo"/>
+    <Loader v-if="loading"/>
+    <Title v-else-if="toDoItem.length" post-title="hello!" v-bind:toDoItem="toDoItem"
+           @remove-to-do="removeToDo"  />
+    <p v-else>No items</p>
   </div>
 </template>
 
@@ -10,31 +16,36 @@
 
 import Title from "../components/Title"
 import AddToDo from "../components/AddToDo";
+import Loader from "../components/Loder";
+
 export default {
   name: 'App',
   components: {
     Title,
-    AddToDo
+    AddToDo,
+    Loader
   },
   data() {
     return {
-      toDoItem: []
+      toDoItem: [],
+      loading: true
     }
   },
   mounted() {
     fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
       .then(response => response.json())
-      .then( json => {
+      .then(json => {
         console.log(json)
         this.toDoItem = json
       })
+    setTimeout(()=> {
+      this.loading = false
 
+    },1000)
   },
-  methods : {
-    removeToDo(id){
-      this.toDoItem = this.toDoItem.filter( item => item.id !== id)
-    },
-    addToDo(newToDo){
+  methods: {
+
+    addToDo(newToDo) {
       this.toDoItem.push(newToDo)
     }
   }

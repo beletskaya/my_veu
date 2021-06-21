@@ -12,14 +12,19 @@
 <script>
 export default {
   props: {
-    item: Object,
-    index: Number
+    index: Number,
+    item:{
+      type: Object
+    }
   },
 
   data: function () {
     return {
       greeting: 'Hello'
     }
+  },
+  methods: {
+
   }
 }
 </script>
@@ -48,5 +53,6 @@ export default {
     border-radius: 5px;
     margin-left: 8px;
     padding: 2px 6px;
+    cursor: pointer;
   }
 </style>

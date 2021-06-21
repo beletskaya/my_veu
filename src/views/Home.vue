@@ -2,12 +2,16 @@
   <div>
     <h2>Home page</h2>
     <p>В этом видео мы с вами разберем компоненты в Vue. Итак, что такое компонент в Vue? Это кусок javascript и html, с какой-то логикой, которые можно переиспользовать. Компонент может принимать какие-то параметры на вход, чтобы потом отображать разную информацию.</p>
-    <a href="/todos">Todos list</a>
+   <div class="links">
+     <router-link to="/todos">Todos list</router-link>
+   </div>
+
   </div>
 </template>
 
-<script>
-  export default {
-
+<style scoped>
+  .links a{
+    text-align: center;
   }
-</script>
+
+</style>

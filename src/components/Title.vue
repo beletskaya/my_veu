@@ -1,12 +1,12 @@
 <template>
   <div>
-    <p @click="clickMethod" v-for="(text, index) in texts"
-        :key="index">{{text}}</p>
     <ul>
-      <Item  v-for="(item, index) in toDoItem"
+      <Item v-for="(item, index) in toDoItem"
             v-bind:item="item"
-             v-bind:index="index"
-            v-on:remove-to-do="removeToDo"/>
+            v-bind:index="index"
+            v-on:remove-to-do="removeToDo"
+           />
+
     </ul>
 
   </div>
@@ -21,7 +21,6 @@ import Item from './Item'
     },
     data() {
       return{
-        texts: ['text1', 'text2', 'text3'],
 
       }
     },
@@ -30,9 +29,8 @@ import Item from './Item'
         //debugger
         alert('This is text')
       },
-      removeToDo(id) {
-        this.$emit('remove-to-do', id)
-        console.log(id)
+      removeToDo(id){
+        this.toDoItem = this.toDoItem.filter( item => item.id !== id)
       }
     }
   }

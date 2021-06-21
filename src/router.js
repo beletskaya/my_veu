@@ -3,10 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 import Home from '../src/views/Home'
-export default {
-  components: {
-    Home
-  },
+export default new Router({
   mode: 'history',
   routes: [
     {
@@ -18,4 +15,4 @@ export default {
       component: () => import('../src/views/ToDos')
     }
   ]
-}
+})
