@@ -1,12 +1,24 @@
 <template>
-  <div class="lds-facebook"><div></div><div></div><div></div></div>
+  <div class="loader">
+    <div class="lds-facebook"><div></div><div></div><div></div></div>
+  </div>
 </template>
 <style scoped>
+.loader{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
   .lds-facebook {
     display: inline-block;
     position: relative;
     width: 80px;
     height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, -50%);
   }
   .lds-facebook div {
     display: inline-block;
